@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import 'animate.css'
 
 //ROUTER IMPORTS
 import { BrowserRouter, Routes, Route }from 'react-router-dom'
