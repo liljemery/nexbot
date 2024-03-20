@@ -10,6 +10,9 @@ export default {
       colors: {
         primary: '#000719'
       },
+      spacing: {
+        '128': '40rem',
+      }
     },
   },
   plugins: [
