@@ -19,7 +19,7 @@ const ChatPage = () => {
             {
                 sender: "user",
                 content: sentContent,
-                img: ""
+                img: '/icon.jpeg'
             }
         ]);
         
