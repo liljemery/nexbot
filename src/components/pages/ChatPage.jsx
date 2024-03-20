@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Typewriter from '../atoms/TypeWriter';
 
 const ChatPage = () => {
@@ -10,7 +10,7 @@ const ChatPage = () => {
             img: '/icon.jpeg'
         }
     ]);
-
+    const chatEndRef = useRef(null);
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -25,6 +25,10 @@ const ChatPage = () => {
         
         setSentContent(''); 
     };
+    useEffect(() => {
+        chatEndRef.current.scrollIntoView({ behavior: "smooth" });
+    }, [messages]);
+
 
     return (
         <div className='h-screen bg-primary'>
@@ -49,6 +53,7 @@ const ChatPage = () => {
                     </div>
                 </div>
             ))}
+            <div ref={chatEndRef}></div>
             </div>
             <form className="fixed inset-x-0 bottom-5 mx-auto w-3/4" onSubmit={handleSubmit}>
                 <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
