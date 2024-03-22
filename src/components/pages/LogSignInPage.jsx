@@ -5,11 +5,12 @@ import RegForm from '../organanisms/RegForm'
 const LogSignInPage = () => {
     const [yaRegistrado, setYaRegistrado] = useState(false);
 
+    
+
     const handleOnChange= (e) =>{
         console.log("Checkbox changed");
         setYaRegistrado(e.target.checked)
     }
-
     return (
         <section className='h-screen flex items-center movingBg' >
             <div className='mx-auto bg-primary w-3/4 h-3/4 rounded-xl md:flex items-center' style={{filter: 'drop-shadow(0 0 0.10rem gray)'}}>
