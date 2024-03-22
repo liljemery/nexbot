@@ -10,6 +10,7 @@ import { BrowserRouter, Routes, Route }from 'react-router-dom'
 import Jumbo from './components/organanisms/Jumbo';
 import LogSignInPage from './components/pages/LogSignInPage';
 import ChatPage from './components/pages/ChatPage';
+import OffCanvasNav from './components/organanisms/OffCanvasNav';
 
 
 
@@ -25,6 +26,7 @@ function App() {
             <Route path='/chat' element={<ChatPage/>}/>
           </Routes>
       </BrowserRouter>
+      <OffCanvasNav/>
     </>
   )
 }

@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 .movingBg{
     background-image: url('/aigenerated.gif');
     background-repeat: no-repeat;
