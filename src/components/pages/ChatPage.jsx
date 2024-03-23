@@ -11,7 +11,13 @@ const ChatPage = () => {
     const [messages, setMessages] = useState([]);
     const { user, isLoading } = useUser();
     const chatEndRef = useRef(null);
-
+    useEffect(()=>{
+        const storedMessagesJSON = localStorage.getItem('messages');
+        const storedMessages = JSON.parse(storedMessagesJSON);
+        if (storedMessages) {
+            setMessages(storedMessages)
+        }
+    },[])
     const handleSubmit = async (e) => {
         setIAFinishedSpeaking(false)
         e.preventDefault();
@@ -37,11 +43,11 @@ const ChatPage = () => {
             parts: [{ text: text }],
         };
         setMessages(prevMessages => [...prevMessages, responseMessage]);
-
         setSentContent('');
         setIAFinishedSpeaking(true);
+        const messagesJSON = JSON.stringify(messages);
+        localStorage.setItem('messages', messagesJSON);
     };
-
     useEffect(() => {
         chatEndRef.current.scrollIntoView({ behavior: "smooth" });
     }, [messages]);
