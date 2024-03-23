@@ -1,7 +1,9 @@
 import React from 'react'
+import { signOut, getAuth } from 'firebase/auth';
+
 
 const OffCanvasNav = () => {
-  return (
+    return (
     <>
         <div className="absolute top-1 right-1 md:top-10 md:right-10">
             <button className="text-white bg-blue-800 hover:bg-blue-900 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" type="button" data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation" aria-controls="drawer-navigation">
@@ -47,7 +49,7 @@ const OffCanvasNav = () => {
                     </a>
                 </li>
                 <li>
-                    <a href="#" className="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-gray-900 dark:hover:bg-gray-700 group">
+                    <a onClick={()=>{signOut(getAuth())}} className="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-gray-900 dark:hover:bg-gray-700 group">
                     <svg className="w-[25px] h-[25px] text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                         <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 12H4m12 0-4 4m4-4-4-4m3-4h2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3h-2"/>
                     </svg>
