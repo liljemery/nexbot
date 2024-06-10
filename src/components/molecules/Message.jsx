@@ -1,6 +1,8 @@
 import React from 'react'
 import icon from '/icon.jpeg'
+import markdownit from 'markdown-it'
 const Message = ({ message }) => {
+    const md = markdownit()
     return (
         <div className={message.role === "user" ? 'mx-auto w-3/4 text-white mt-8 flex flex-row-reverse animate__animated animate__fadeIn bg-slate-800 py-4 rounded-lg' : 'mx-auto w-3/4 text-white pt-8 flex animate__animated animate__fadeIn '}>
             {message.role === "user" ?
@@ -15,7 +17,7 @@ const Message = ({ message }) => {
                 {}
                 <div>
                     {message.parts.map((part, index) => (
-                        <p key={index} dangerouslySetInnerHTML={{ __html: part.text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }} />
+                        <div key={index} dangerouslySetInnerHTML={{ __html: md.render(part.text) }} />
                     ))}
                 </div>
             </div>
